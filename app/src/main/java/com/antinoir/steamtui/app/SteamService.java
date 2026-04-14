@@ -1,6 +1,7 @@
 package com.antinoir.steamtui.app;
 
 import com.lukaspradel.steamapi.core.exception.SteamApiException;
+import com.lukaspradel.steamapi.data.json.applist.App;
 import com.lukaspradel.steamapi.data.json.applist.GetAppList;
 import com.lukaspradel.steamapi.data.json.appnews.GetNewsForApp;
 import com.lukaspradel.steamapi.webapi.client.SteamWebApiClient;
@@ -30,8 +31,8 @@ public class SteamService {
         // Note: The official Steam API does not have a direct endpoint for discounts.
         // A practical approach is to fetch details for a random set of apps and check for discounts.
         // This is a simplified example.
-        List<GetAppList.App> apps = appList.getApplist().getApps();
-        GetAppList.App randomApp = apps.get(random.nextInt(apps.size()));
+        List<App> apps = appList.getApplist().getApps();
+        App randomApp = apps.get(random.nextInt(apps.size()));
         
         // 3. For a real implementation, you would call the Storefront API (e.g., appdetails)
         // to get price information. The library `steam-module` is better for this [citation:2].
@@ -45,9 +46,29 @@ public class SteamService {
 
     // Inner class for structured data
     public static class GameDeal {
-        private Integer appId;
+        private double appId;
         private String name;
         private Integer discountPercent;
         // Getters and setters...
+
+        
+        public double getAppId() {
+            return appId;
+        }
+        public void setAppId(double appId) {
+            this.appId = appId;
+        }
+        public String getName() {
+            return name;
+        }
+        public void setName(String name) {
+            this.name = name;
+        }
+        public Integer getDiscountPercent() {
+            return discountPercent;
+        }
+        public void setDiscountPercent(Integer discountPercent) {
+            this.discountPercent = discountPercent;
+        }
     }
 }
