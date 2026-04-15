@@ -1,8 +1,6 @@
 package com.antinoir.steamtui.app;
 
 
-import org.springframework.shell.core.command.annotation.Command;
-
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 import org.springframework.shell.standard.ShellOption;
